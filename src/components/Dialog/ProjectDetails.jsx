@@ -1,6 +1,6 @@
 import { CloseRounded, GitHub, LinkedIn } from "@mui/icons-material";
 import { Modal } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -180,8 +180,139 @@ const Button = styled.a`
   }
 `;
 
+const DescriptionText = styled.div`
+  font-size: 16px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.text_primary};
+  margin: 8px 6px;
+  @media only screen and (max-width: 600px) {
+    font-size: 14px;
+    margin: 6px 6px;
+  }
+`;
+
+const BulletList = styled.ul`
+  margin: 0;
+  padding-left: 20px;
+`;
+
+const BulletItem = styled.li`
+  margin-bottom: 8px;
+`;
+
+const ShowMoreText = styled.span`
+  color: ${({ theme }) => theme.primary};
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 4px;
+  display: inline-block;
+  transition: all 0.3s ease;
+`;
+
+const TruncatedDescription = ({ text, limit = 100 }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const getWords = (str) => str.trim().split(/\s+/);
+
+  const truncateText = (text) => {
+    const words = getWords(text);
+    if (words.length > limit) {
+      return words.slice(0, limit).join(" ");
+    }
+    return text;
+  };
+
+  const renderContent = () => {
+    if (typeof text === "string") {
+      const words = getWords(text);
+      if (words.length <= limit || isExpanded) {
+        return <DescriptionText>{text}</DescriptionText>;
+      }
+      return (
+        <DescriptionText>
+          {truncateText(text)}
+          <ShowMoreText onClick={() => setIsExpanded(true)}>
+            ...Read More
+          </ShowMoreText>
+        </DescriptionText>
+      );
+    }
+
+    if (Array.isArray(text)) {
+      if (isExpanded) {
+        return (
+          <DescriptionText>
+            <BulletList>
+              {text.map((item, index) => (
+                <BulletItem key={index}>{item}</BulletItem>
+              ))}
+            </BulletList>
+            <ShowMoreText onClick={() => setIsExpanded(false)}>
+              ^Read Less
+            </ShowMoreText>
+          </DescriptionText>
+        );
+      }
+
+      const joinedText = text.join(" ");
+      const words = getWords(joinedText);
+
+      if (words.length <= limit) {
+        return (
+          <DescriptionText>
+            <BulletList>
+              {text.map((item, index) => (
+                <BulletItem key={index}>{item}</BulletItem>
+              ))}
+            </BulletList>
+          </DescriptionText>
+        );
+      }
+
+      // Show truncated text as bullets up to the word limit
+      let currentWordCount = 0;
+      let truncatedItems = [];
+
+      for (let item of text) {
+        const itemWords = getWords(item);
+        if (currentWordCount + itemWords.length <= limit) {
+          truncatedItems.push(item);
+          currentWordCount += itemWords.length;
+        } else {
+          const remainingWords = limit - currentWordCount;
+          if (remainingWords > 0) {
+            const truncatedItem = getWords(item)
+              .slice(0, remainingWords)
+              .join(" ");
+            truncatedItems.push(truncatedItem);
+          }
+          break;
+        }
+      }
+
+      return (
+        <DescriptionText>
+          <BulletList>
+            {truncatedItems.map((item, index) => (
+              <BulletItem key={index}>{item}</BulletItem>
+            ))}
+          </BulletList>
+          <ShowMoreText onClick={() => setIsExpanded(true)}>
+            ...Read More
+          </ShowMoreText>
+        </DescriptionText>
+      );
+    }
+
+    return null;
+  };
+
+  return renderContent();
+};
+
 const ProjectDetails = ({ openModal, setOpenModal }) => {
   const project = openModal?.project;
+
   return (
     <Modal
       open={true}
@@ -203,44 +334,21 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
           <Date>{project.date}</Date>
           <Tags>
             {project?.tags.map((tag) => (
-              <Tag>{tag}</Tag>
+              <Tag key={tag}>{tag}</Tag>
             ))}
           </Tags>
-          <Desc>{project?.description}</Desc>
-          {project.member && (
-            <>
-              <Label>Members</Label>
-              <Members>
-                {project?.member.map((member) => (
-                  <Member>
-                    <MemberImage src={member.img} />
-                    <MemberName>{member.name}</MemberName>
-                    <a
-                      href={member.github}
-                      target="new"
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      <GitHub />
-                    </a>
-                    <a
-                      href={member.linkedin}
-                      target="new"
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      <LinkedIn />
-                    </a>
-                  </Member>
-                ))}
-              </Members>
-            </>
-          )}
+          <TruncatedDescription text={project?.description} />
           <ButtonGroup>
-            <Button dull href={project?.github} target="new">
-              View Code
-            </Button>
-            <Button href={project?.webapp} target="new">
-              View Live App
-            </Button>
+            {project?.github && (
+              <Button dull href={project?.github} target="new">
+                View Code
+              </Button>
+            )}
+            {project?.readMore && (
+              <Button href={project?.readMore} target="new">
+                Read Me Github
+              </Button>
+            )}
           </ButtonGroup>
         </Wrapper>
       </Container>

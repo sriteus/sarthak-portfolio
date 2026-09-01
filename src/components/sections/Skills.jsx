@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { skills } from "../../data/constants";
-import { Tilt } from "react-tilt";
 
 const Container = styled.div`
-display: flex;
-flex-direction: column;
-justify-content-center;
-position: relative;
-z-index: 1;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  padding: 80px 0;
 `;
+
 const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -18,103 +19,121 @@ const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   gap: 12px;
-  @media (max-width: 960px) {
-    flex-direction: column;
-  }
+  padding: 0 20px;
 `;
 
-const Title = styled.div`
-  font-size: 52px;
+const Title = styled.h2`
+  font-size: 56px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
   margin-top: 20px;
   color: ${({ theme }) => theme.text_primary};
+  background: #ffffff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+
   @media (max-width: 768px) {
     margin-top: 12px;
-    font-size: 32px;
+    font-size: 36px;
   }
 `;
 
 const Desc = styled.div`
   font-size: 18px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   color: ${({ theme }) => theme.text_secondary};
+  max-width: 600px;
+  margin-bottom: 60px;
+
   @media (max-width: 768px) {
     font-size: 16px;
+    margin-bottom: 40px;
   }
 `;
 
 const SkillsContainer = styled.div`
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  gap: 50px;
+  display: grid;
+  gap: 40px;
   justify-content: center;
 `;
+
 const Skill = styled.div`
   width: 100%;
-  max-width: 500px;
-  background-color: rgba(17, 25, 40, 0.83);
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
-  border-radius: 16px;
-  padding: 18px 36px;
+  height: 100%;
+  border: 2px solid rgba(1, 138, 242, 0.5); /* Set a transparent solid border */
+  border-radius: 24px;
+  padding: 28px 36px;
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 
   @media (max-width: 768px) {
-    max-width: 400px;
-    padding: 10px 36px;
-  }
-
-  @media (max-width: 500px) {
-    max-width: 330px;
-    padding: 10px 36px;
+    padding: 20px 28px;
   }
 `;
 
-const SkillTitle = styled.div`
-  font-size: 28px;
+const SkillTitle = styled.h3`
+  font-size: 32px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${({ theme }) => theme.text_primary};
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    border-radius: 4px;
+  }
 `;
 
 const SkillList = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 20px;
 `;
+
 const SkillItem = styled.div`
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_primary + 80};
-  border: 1px solid ${({ theme }) => theme.text_primary + 80};
-  border-radius: 12px;
-  padding: 12px 16px;
+  color: ${({ theme }) => theme.text_primary};
+  // background: rgba(255, 255, 255, 0.08);
+  border: 3px solid #fff2;
+  border-radius: 8px;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+  }
 
   @media (max-width: 768px) {
     font-size: 14px;
-    padding: 8px 12px;
-  }
-  @media (max-width: 500px) {
-    font-size: 14px;
-    padding: 6px 12px;
+    padding: 8px 16px;
   }
 `;
 
 const SkillImage = styled.img`
   width: 24px;
   height: 24px;
+  border-radius: 4px;
+  filter: brightness(0.95);
 `;
 
 const Skills = () => {
@@ -122,30 +141,19 @@ const Skills = () => {
     <Container id="Skills">
       <Wrapper>
         <Title>Skills</Title>
-        <Desc
-          style={{
-            marginBottom: "40px",
-          }}
-        >
-          Here are some of my skills on which I have been working on for the
-          past 3 years.
-        </Desc>
-
         <SkillsContainer>
           {skills.map((skill, index) => (
-            <Tilt>
-              <Skill key={`skill-${index}`}>
-                <SkillTitle>{skill.title}</SkillTitle>
-                <SkillList>
-                  {skill.skills.map((item, index_x) => (
-                    <SkillItem key={`skill-x-${index_x}`}>
-                      <SkillImage src={item.image} />
-                      {item.name}
-                    </SkillItem>
-                  ))}
-                </SkillList>
-              </Skill>
-            </Tilt>
+            <Skill>
+              <SkillTitle>{skill.title}</SkillTitle>
+              <SkillList>
+                {skill.skills.map((item, index_x) => (
+                  <SkillItem key={`skill-item-${index_x}`}>
+                    <SkillImage src={item.image} alt={item.name} />
+                    {item.name}
+                  </SkillItem>
+                ))}
+              </SkillList>
+            </Skill>
           ))}
         </SkillsContainer>
       </Wrapper>

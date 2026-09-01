@@ -102,7 +102,12 @@ const ExperienceCard = ({ experience }) => {
           width="100%"
           height="100%"
           alt={experience.school}
-          style={{ borderRadius: "50%", objectFit: "cover" }}
+          style={{
+            borderRadius: "50%",
+            objectFit: "contain",
+            backgroundColor: "white",
+            boxShadow: "#fff3 0px 4px 24px", // This ensures empty space is filled with white
+          }}
           src={experience.img}
         />
       }
@@ -112,14 +117,13 @@ const ExperienceCard = ({ experience }) => {
         gap: "12px",
         background: "#1d1836",
         color: "#fff",
-        boxShadow: "rgba(23, 92, 230, 0.15) 0px 4px 24px",
-        // backdropFilter: "blur(3px) saturate(106%)",
-        backgroundColor: "rgba(17, 25, 40, 0.83)",
-        border: "1px solid rgba(255, 255, 255, 0.125)",
+        boxShadow: "#fff3 0px 4px 24px",
+        backgroundColor: "transparent",
+        border: "1px solid #018afc",
         borderRadius: "6px",
       }}
       contentArrowStyle={{
-        borderRight: "7px solid  rgba(255, 255, 255, 0.3)",
+        borderRight: "7px solid  #018afc",
       }}
       date={experience.date}
     >

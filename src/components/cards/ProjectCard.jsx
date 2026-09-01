@@ -1,24 +1,39 @@
 import React from "react";
 import styled from "styled-components";
+import { FaStar } from "react-icons/fa";
 
 const Card = styled.div`
   width: 330px;
   height: 490px;
-  background-color: ${({ theme }) => theme.card};
+  background-color: transparent;
   cursor: pointer;
   border-radius: 10px;
-  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
+  border: ${({ $starred }) =>
+    $starred ? "2px solid #FFD700" : "1px solid #fff7"};
   overflow: hidden;
   padding: 26px 20px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   transition: all 0.5s ease-in-out;
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 50px 4px rgba(0, 0, 0, 0.6);
-    filter: brightness(1.1);
-  }
+  position: relative;
+  box-shadow: ${({ $starred }) =>
+    $starred ? "0 0 20px rgba(255, 215, 0, 0.3)" : "none"};
+`;
+
+const StarBadge = styled.div`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.5);
+  z-index: 1;
 `;
 const Image = styled.img`
   width: 100%;
@@ -105,7 +120,15 @@ const Button = styled.a`
 
 const ProjectCard = ({ project, setOpenModal }) => {
   return (
-    <Card onClick={() => setOpenModal({ state: true, project: project })}>
+    <Card
+      onClick={() => setOpenModal({ state: true, project: project })}
+      $starred={project.starred}
+    >
+      {project.starred && (
+        <StarBadge>
+          <FaStar color="#fff" size={16} />
+        </StarBadge>
+      )}
       <Image src={project.image} />
       <Tags>
         {project.tags?.map((tag, index) => (
