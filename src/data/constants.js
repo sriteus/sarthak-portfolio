@@ -1,8 +1,7 @@
 export const Bio = {
   name: "Sarthak Garg",
   roles: ["Software Engineer", "Full Stack Developer"],
-  description:
-    "Dedicated Software Developer with experience in dynamic web applications. Proficient in various frameworks and libraries, enhancing UI functionality and frontend/backend integration. Eager to apply robust full-stack expertise to innovative projects using the latest technologies.",
+  description: "",
   github: "http://github.com/sriteus",
   resume:
     "https://docs.google.com/document/d/1b4pxXPmcwQSvOgfNfiduy253R6oxEU53QIh3XqSMxkk/edit?usp=sharing",

@@ -16,11 +16,11 @@ const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  padding: 80px 30px;
+  padding: 40px 30px;
   z-index: 1;
 
   @media (max-width: 960px) {
-    padding: 66px 16px;
+    padding: 40px 16px;
   }
 
   @media (max-width: 640px) {
@@ -152,26 +152,6 @@ const AnimatedText = styled.span`
   transition: all 0.5s ease;
 `;
 
-const SubTitle = styled.div`
-  font-size: 20px;
-  line-height: 32px;
-  margin-bottom: 42px;
-  color: ${({ theme }) => theme.text_primary + 95};
-  text-align: center;
-  max-width: 650px;
-
-  @media (max-width: 960px) {
-    font-size: 16px;
-    line-height: 32px;
-  }
-
-  @media (max-width: 640px) {
-    font-size: 14px;
-    line-height: 26px;
-    margin-bottom: 24px;
-  }
-`;
-
 const ResumeButton = styled.a`
   -webkit-appearance: button;
   -moz-appearance: button;
@@ -284,9 +264,6 @@ const Hero = () => {
                   Github
                 </ResumeButton>
               </div>
-              <motion.div {...headContentAnimation}>
-                <SubTitle>{Bio.description}</SubTitle>
-              </motion.div>
             </ContentContainer>
           </HeroInnerContainer>
         </motion.div>
