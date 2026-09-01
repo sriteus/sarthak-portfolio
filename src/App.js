@@ -36,11 +36,11 @@ function App() {
             <div>
               <Hero />
               <Wrapper>
-                <Skills />
                 <Experience />
               </Wrapper>
               <Wrapper>
                 <Projects openModal={openModal} setOpenModal={setOpenModal} />
+                <Skills />
                 <Education />
                 {/* <Contact /> */}
               </Wrapper>
