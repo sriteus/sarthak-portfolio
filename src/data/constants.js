@@ -506,45 +506,4 @@ export const projects = [
     github: "",
     webapp: "",
   },
-  {
-    id: 7,
-    title: "FastXDelivery (Food Delivery App Template)",
-    date: "GitHub Published",
-    description: [
-      "Led the development of 'FastXDelivery,' a comprehensive grocery shopping web application, utilizing React and TypeScript to ensure a robust and maintainable front-end architecture. The application offers users a seamless and intuitive interface for browsing and purchasing grocery items, enhancing the overall shopping experience.",
-      "Engineered a sophisticated cart management system featuring real-time updates and data persistence. This system allows users to add, remove, and modify items in their cart effortlessly, with changes reflected instantaneously, thereby improving user engagement and satisfaction.",
-      "Implemented secure user authentication and authorization mechanisms using session management. This approach safeguards user data and ensures that only authenticated users can access specific features, aligning with best practices in web security.",
-      "Designed a fully responsive user interface employing modern CSS techniques and frameworks. The application delivers optimal performance and usability across various devices and screen sizes, including desktops, tablets, and smartphones, thereby broadening the user base.",
-      "Developed a robust backend infrastructure using Express.js and PostgreSQL. This setup facilitates efficient data handling, storage, and retrieval, supporting the application's dynamic features and ensuring data integrity and consistency.",
-      "Integrated RESTful APIs to enable seamless communication between the front-end and back-end components. This integration ensures efficient data exchange and contributes to the application's scalability and maintainability.",
-      "Conducted comprehensive testing, including unit and integration tests, to validate the application's functionality and performance. This rigorous testing process helped in identifying and resolving issues early, leading to a more stable and reliable product.",
-      "Deployed the application on a cloud platform, ensuring high availability and scalability. The deployment process included setting up continuous integration and continuous deployment (CI/CD) pipelines to streamline updates and maintenance.",
-      "Provided detailed documentation covering the application's architecture, setup instructions, and usage guidelines. This documentation facilitates easy onboarding for new developers and users, promoting collaboration and knowledge sharing.",
-    ],
-    image:
-      "https://github.com/sriteus/FastX-Delivery-/blob/main/Project-Screenshots/Home-Page.png?raw=true",
-    tags: ["React", "Express", "MySQL", "O Auth", "Session Management"],
-    category: "Web Application",
-    github: "https://github.com/sriteus/FastX-Delivery-",
-    webapp: "",
-  },
-
-  {
-    id: 8,
-    title: "PicGram (Photo Social Media Sharing)",
-    date: "GitHub Published",
-    description: [
-      "Developed a fully functional social media platform tailored for photo sharing and community interaction. Utilized React to create a dynamic and responsive front-end interface, enhancing user engagement.",
-      "Designed and implemented key social features such as user profile management, photo uploading, sharing, likes, comments, and follower systems to mimic a modern social media experience.",
-      "Built a robust backend infrastructure to support real-time interactions and ensure scalability. Leveraged efficient data models to handle a growing user base seamlessly.",
-      "Focused on delivering an optimal user experience by employing modern UI/UX principles and designing a fully responsive layout compatible across devices.",
-      "Published the project on GitHub, making the source code available for the developer community and inviting collaboration and contributions.",
-    ],
-    image:
-      "https://github.com/sriteus/PicGram/blob/main/Project_Screenshots/Profile-Page.png?raw=true",
-    tags: ["React", "Social Media", "Responsive Design", "Web Application"],
-    category: "Web App",
-    github: "https://github.com/sriteus/PicGram",
-    webapp: "",
-  },
 ];

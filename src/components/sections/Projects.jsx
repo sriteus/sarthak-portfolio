@@ -98,7 +98,7 @@ const Projects = ({ openModal, setOpenModal }) => {
   return (
     <Container id="Projects">
       <Wrapper>
-        <Title>Projects</Title>
+        <Title>Projects &amp; Experience</Title>
         <CardContainer>
           {toggle === "all" &&
             projects.map((project) => (
