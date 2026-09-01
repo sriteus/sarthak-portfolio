@@ -145,6 +145,15 @@ const RoleText = styled.div`
   }
 `;
 
+const Description = styled.div`
+  max-width: 620px;
+  margin: 0 auto 16px;
+  color: ${({ theme }) => theme.text_secondary};
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+`;
+
 const AnimatedText = styled.span`
   color: ${({ theme }) => theme.primary};
   opacity: ${(props) => (props.visible ? 1 : 0)};
@@ -249,6 +258,10 @@ const Hero = () => {
                 <RoleText>
                   <AnimatedRole roles={Bio.roles} />
                 </RoleText>
+                <Description>
+                  Full-stack developer building dynamic web applications with
+                  modern frontend and backend technologies.
+                </Description>
               </motion.div>
 
               {/* Place buttons below image for mobile only */}
