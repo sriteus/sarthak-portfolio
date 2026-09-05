@@ -71,6 +71,14 @@ const Image = styled.img`
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 `;
 
+const Video = styled.video`
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+`;
+
 const Label = styled.div`
   font-size: 20px;
   font-weight: 600;
@@ -329,7 +337,11 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
             }}
             onClick={() => setOpenModal({ state: false, project: null })}
           />
-          <Image src={project?.image} />
+          {project?.video ? (
+            <Video src={project.video} poster={project.image} controls autoPlay />
+          ) : (
+            <Image src={project?.image} alt={project?.title} />
+          )}
           <Title>{project?.title}</Title>
           <Date>{project.date}</Date>
           <Tags>
@@ -347,6 +359,11 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
             {project?.readMore && (
               <Button href={project?.readMore} target="new">
                 Read Me Github
+              </Button>
+            )}
+            {project?.webapp && (
+              <Button href={project.webapp} target="_blank" rel="noreferrer">
+                Open Preview
               </Button>
             )}
           </ButtonGroup>

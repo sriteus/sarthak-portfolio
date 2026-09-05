@@ -5,6 +5,17 @@ Welcome to my portfolio! This project showcases my skills, projects, and experie
 
 ### Weblink: [Live Website](https://rishavchanda.netlify.app)
 
+## Project Videos
+
+Place project videos in `public/videos/`, for example `public/videos/postedIn.mp4`.
+Then add a `video` field to the matching project in `src/data/constants.js`:
+
+```js
+video: "/videos/postedIn.mp4",
+```
+
+Videos preview for up to 3 seconds when hovered and play with controls when the card is opened. Projects without a `video` field continue to use their image.
+
 ## Some Images:
 
 <img width="450px;" src="https://github.com/rishavchanda/rishav-chanda-portfolio/assets/64485885/4774dc30-1c1c-4c6c-b23b-019f3481713e"/>

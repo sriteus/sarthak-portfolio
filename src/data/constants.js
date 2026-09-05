@@ -353,7 +353,7 @@ export const projects = [
   {
     id: 0,
     title: "PostedIn — AI-Powered LinkedIn Content & Publishing Platform",
-    date: "Completed",
+    date: "Privately Delivered & Deployed",
     starred: true,
     description: [
       "PostedIn is a fully functional and scalable LinkedIn content creation and publishing platform, with only its AI-powered features currently available by invitation. The invite-only approach for AI features is primarily driven by the compute and inference costs involved in generating personalized Writing DNA profiles and AI-generated LinkedIn posts. The core platform, LinkedIn integration, content management, scheduling, calendar, publishing workflows, and supporting infrastructure are fully implemented and designed to scale as usage grows.",
@@ -374,7 +374,7 @@ export const projects = [
   {
     id: 1,
     title: "JSON Schema Form Builder",
-    date: "Proposed and Implemented",
+    date: "Privately Delivered & Deployed",
     starred: true,
     description: [
       "Designed and developed a comprehensive React-based dynamic form system, enabling the generation of type-safe React components directly from JSON schemas. This approach significantly reduces the need for manual coding in form and grid generation, enhancing development efficiency and consistency.",
@@ -402,8 +402,30 @@ export const projects = [
   },
   {
     id: 2,
+    title: "Auto Job Filler",
+    date: "Privately Delivered & Deployed",
+    starred: true,
+    description: [
+      "Auto Job Filler is a Chrome extension that securely saves user data and automatically fills job application forms, reducing repetitive work during applications.",
+      "Built with Playwright and AI-powered workflows to assist with form completion. The extension is not live on the Chrome Web Store yet and currently uses invite-based access. Watch the project video to see how it works.",
+    ],
+    image: "/projects/auto_job_filler.png",
+    tags: [
+      "Chrome Extension",
+      "Playwright",
+      "AI",
+      "Automation",
+      "Data Storage",
+    ],
+    category: "Browser Extension",
+    github: "",
+    webapp: "https://auto-job-filler.vercel.app/",
+    video: "/videos/auto-job-filler.mp4",
+  },
+  {
+    id: 3,
     title: "Google Maps Locality Finder",
-    date: "Private/Completed",
+    date: "Privately Delivered & Deployed",
     description: [
       "Developed a solution using the Google Maps 23 API, specifically leveraging the Google Maps JavaScript API, Geocoding API, and Places API to allow users to input a pincode. The system then draws a circle around the specified locality, using geographic data to ensure the circle encompasses the precise area associated with that pincode.",
       "Once the circle is drawn, the solution queries the Google Maps APIs to gather detailed information about local businesses and entities within that region. This includes retrieving the address, phone number, name, and operational status of various businesses. The collected data is then compiled and exported into an Excel file format, allowing users to download and utilize the information for further analysis or research.",
@@ -426,9 +448,9 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 3,
+    id: 4,
     title: "Dual Employment Checker",
-    date: "Private/Completed",
+    date: "Privately Delivered & Deployed",
     description: [
       "Developed an advanced dual employment detection system by leveraging Puppeteer to scrape employment data from government EPF (Employee Provident Fund) systems and FTCash company portals. This innovative solution automated a labor-intensive process, saving significant time and resources.",
       "Achieved an 85% improvement in detection efficiency compared to traditional manual verification methods, enabling accurate identification of employees engaged in dual employment scenarios.",
@@ -445,9 +467,9 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 4,
+    id: 5,
     title: "Onboarding APIs",
-    date: "Private/Completed",
+    date: "Privately Delivered & Deployed",
     description: [
       "Engineered comprehensive client onboarding APIs to automate and streamline the customer onboarding process. These APIs seamlessly integrated with third-party systems to reduce manual interventions.",
       "Developed secure authentication mechanisms for handling sensitive customer data, ensuring compliance with data protection standards and regulations.",
@@ -463,9 +485,9 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 5,
+    id: 6,
     title: "PowerBi Dashboard",
-    date: "Private/Completed",
+    date: "Privately Delivered & Deployed",
     description: [
       "Led the end-to-end design and development of a sophisticated Power BI dashboard to enable real-time data visualization and actionable insights. The dashboard was crafted with a focus on delivering seamless user experiences while adhering to business objectives. Integrated data from multiple sources, including Google Analytics accounts, to create a centralized and holistic reporting environment. This allowed stakeholders to track performance metrics across diverse channels with precision.",
       "Utilized advanced DAX expressions and calculated fields to create custom metrics and KPIs tailored to specific business requirements. This enabled in-depth analysis of key performance indicators, providing granular insights into organizational performance. Implemented robust data transformation techniques using Power Query to ensure the accuracy, consistency, and reliability of the data presented in the dashboard.",
@@ -486,9 +508,9 @@ export const projects = [
   },
 
   {
-    id: 6,
+    id: 7,
     title: "Bulk WhatsApp/SMS API",
-    date: "Completed",
+    date: "Privately Delivered & Deployed",
     starred: true,
     description: [
       "Developed a highly efficient and scalable messaging API for WhatsApp and SMS using PHP and Laravel, leveraging the Twilio API for communication functionality. This solution was designed to cater to businesses requiring bulk messaging capabilities with minimal overhead.",

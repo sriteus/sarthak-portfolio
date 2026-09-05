@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { FaStar } from "react-icons/fa";
+import { FaPlay, FaStar } from "react-icons/fa";
 
 const Card = styled.div`
   width: 330px;
@@ -41,6 +41,35 @@ const Image = styled.img`
   background-color: ${({ theme }) => theme.white};
   border-radius: 10px;
   box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
+`;
+const Video = styled.video`
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: ${({ theme }) => theme.white};
+  border-radius: 10px;
+  box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
+`;
+const MediaFrame = styled.div`
+  width: 100%;
+  height: 180px;
+  position: relative;
+`;
+const PlayIndicator = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
 `;
 const Tags = styled.div`
   width: 100%;
@@ -119,6 +148,19 @@ const Button = styled.a`
 `;
 
 const ProjectCard = ({ project, setOpenModal }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handlePreviewTime = (event) => {
+    if (event.currentTarget.currentTime >= 3) {
+      event.currentTarget.pause();
+    }
+  };
+
+  const resetPreview = (event) => {
+    event.currentTarget.pause();
+    event.currentTarget.currentTime = 0;
+  };
+
   return (
     <Card
       onClick={() => setOpenModal({ state: true, project: project })}
@@ -129,7 +171,36 @@ const ProjectCard = ({ project, setOpenModal }) => {
           <FaStar color="#fff" size={16} />
         </StarBadge>
       )}
-      <Image src={project.image} />
+      {project.video ? (
+        <MediaFrame
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={(event) => {
+            setIsHovered(false);
+            const video = event.currentTarget.querySelector("video");
+            if (video) resetPreview({ currentTarget: video });
+          }}
+        >
+          {isHovered ? (
+            <Video
+              src={project.video}
+              muted
+              playsInline
+              autoPlay
+              preload="metadata"
+              onTimeUpdate={handlePreviewTime}
+            />
+          ) : (
+            <>
+              <Image src={project.image} alt={project.title} />
+              <PlayIndicator aria-label="Video available">
+                <FaPlay size={18} />
+              </PlayIndicator>
+            </>
+          )}
+        </MediaFrame>
+      ) : (
+        <Image src={project.image} alt={project.title} />
+      )}
       <Tags>
         {project.tags?.map((tag, index) => (
           <Tag>{tag}</Tag>
