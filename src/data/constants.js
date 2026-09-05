@@ -352,6 +352,28 @@ export const education = [
 export const projects = [
   {
     id: 0,
+    title: "Auto Job Filler",
+    date: "Privately Delivered & Deployed",
+    starred: true,
+    description: [
+      "Auto Job Filler is a Chrome extension that securely saves user data and automatically fills job application forms, reducing repetitive work during applications.",
+      "Built with Playwright and AI-powered workflows to assist with form completion. The extension is not live on the Chrome Web Store yet and currently uses invite-based access. Watch the project video to see how it works.",
+    ],
+    image: "/projects/auto_job_filler.png",
+    tags: [
+      "Chrome Extension",
+      "Playwright",
+      "AI",
+      "Automation",
+      "Data Storage",
+    ],
+    category: "Browser Extension",
+    github: "",
+    webapp: "https://auto-job-filler.vercel.app/",
+    video: "/videos/auto-job-filler.mp4",
+  },
+  {
+    id: 1,
     title: "PostedIn — AI-Powered LinkedIn Content & Publishing Platform",
     date: "Privately Delivered & Deployed",
     starred: true,
@@ -372,7 +394,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 1,
+    id: 2,
     title: "JSON Schema Form Builder",
     date: "Privately Delivered & Deployed",
     starred: true,
@@ -399,28 +421,6 @@ export const projects = [
     category: "Plug-in",
     github: "https://github.com/sriteus/inventory",
     readMore: "https://github.com/sriteus/inventory/blob/main/README.md",
-  },
-  {
-    id: 2,
-    title: "Auto Job Filler",
-    date: "Privately Delivered & Deployed",
-    starred: true,
-    description: [
-      "Auto Job Filler is a Chrome extension that securely saves user data and automatically fills job application forms, reducing repetitive work during applications.",
-      "Built with Playwright and AI-powered workflows to assist with form completion. The extension is not live on the Chrome Web Store yet and currently uses invite-based access. Watch the project video to see how it works.",
-    ],
-    image: "/projects/auto_job_filler.png",
-    tags: [
-      "Chrome Extension",
-      "Playwright",
-      "AI",
-      "Automation",
-      "Data Storage",
-    ],
-    category: "Browser Extension",
-    github: "",
-    webapp: "https://auto-job-filler.vercel.app/",
-    video: "/videos/auto-job-filler.mp4",
   },
   {
     id: 3,
