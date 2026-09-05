@@ -353,7 +353,7 @@ export const projects = [
   {
     id: 0,
     title: "Auto Job Filler",
-    date: "Privately Delivered & Deployed",
+    date: "Publicly Available, Chrome extension-invitation only",
     starred: true,
     description: [
       "Auto Job Filler is a Chrome extension that securely saves user data and automatically fills job application forms, reducing repetitive work during applications.",
@@ -375,7 +375,7 @@ export const projects = [
   {
     id: 1,
     title: "PostedIn — AI-Powered LinkedIn Content & Publishing Platform",
-    date: "Privately Delivered & Deployed",
+    date: "Available Publicly, AI & LinkedIn Features by Invitation Only",
     starred: true,
     description: [
       "PostedIn is a fully functional and scalable LinkedIn content creation and publishing platform, with only its AI-powered features currently available by invitation. The invite-only approach for AI features is primarily driven by the compute and inference costs involved in generating personalized Writing DNA profiles and AI-generated LinkedIn posts. The core platform, LinkedIn integration, content management, scheduling, calendar, publishing workflows, and supporting infrastructure are fully implemented and designed to scale as usage grows.",
@@ -391,7 +391,8 @@ export const projects = [
     tags: ["Next.js", "Supabase", "OAuth", "AI/LLM", "SaaS"],
     category: "Web Application",
     github: "",
-    webapp: "",
+    webapp: "https://postedin-portfolio.vercel.app/",
+    video: "/videos/postedin_demo.mp4",
   },
   {
     id: 2,
@@ -433,8 +434,7 @@ export const projects = [
       "The project integrates multiple Google services, allowing it to deliver accurate and detailed information about the local area. It provides users with real-time results that are customized based on the pincode input, ensuring the data retrieved is specific to the geographic area in question. This level of integration with the Google Maps ecosystem ensures that the information provided is both reliable and up-to-date.",
       "This tool can be particularly useful for businesses that want to gather data about local competition, service providers, or potential customers. Its functionality also extends to individuals interested in gathering information about businesses or local resources within a particular region, enhancing location-based research and decision-making.",
     ],
-    image:
-      "https://cdn-lkcbn.nitrocdn.com/NvHobSwzurRfTrICpWdlxinKpfwAoWbb/assets/mobile/optimized/rev-87d08db/lh7-us.googleusercontent.com/docsz/84898e200f63b837cb3aeb5e4f60f921.AD_4nXcWtITZ2bVoBBuRlrJzv9VmazdcdTwGsQZ5tZ1hlteF9KrlQ267_tCaGX8DMQ1StWZ1P84jog-1JU75O44kO3LqgFOVHNOteiYF_mB47mkZ-zz149zo9-lX7nous-eIeCsdJJoP0bmD8qql0xhFlJHk1dE",
+    image: "/projects/googlemap_project.png",
     tags: [
       "Google Maps API",
       "React",

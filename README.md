@@ -1,7 +1,6 @@
 # My Portfolio
 
-##Deploy : "git add src/App.js && git commit -m "Move skills below projects" && git push origin master && vercel --prod --build-env CI=false"
-Welcome to my portfolio! This project showcases my skills, projects, and experiences as a web developer.
+##Deploy : "git add . && git commit -m "Update portfolio" && git push origin master && vercel --prod --build-env CI=false"
 
 ### Weblink: [Live Website](https://rishavchanda.netlify.app)
 
