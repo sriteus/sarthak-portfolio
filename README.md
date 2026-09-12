@@ -4,6 +4,18 @@
 
 ### Weblink: [Live Website](https://rishavchanda.netlify.app)
 
+## Google Analytics 4
+
+This project loads GA4 only in production. To enable it:
+
+1. Create a GA4 property at [Google Analytics](https://analytics.google.com/).
+2. In **Admin > Data collection and modification > Data streams**, create or select a Web stream for the Vercel domain.
+3. Copy the Measurement ID, which looks like `G-XXXXXXXXXX`.
+4. In Vercel, open the project settings and add an environment variable named `REACT_APP_GA_MEASUREMENT_ID` with that value for **Production**.
+5. Redeploy the project. Analytics data usually appears in **Reports > Realtime** within a few minutes.
+
+For local testing, add the same variable to a local `.env` file. Analytics remains disabled during development.
+
 ## Project Videos
 
 Place project videos in `public/videos/`, for example `public/videos/postedIn.mp4`.
